@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.js": "/reactfinalproject/static/js/main.c1429516.js",
-    "index.html": "/reactfinalproject/index.html",
-    "main.c1429516.js.map": "/reactfinalproject/static/js/main.c1429516.js.map"
+    "main.js": "/reactfinalproject/home/static/js/main.c1429516.js",
+    "index.html": "/reactfinalproject/home/index.html",
+    "main.c1429516.js.map": "/reactfinalproject/home/static/js/main.c1429516.js.map"
   },
   "entrypoints": [
     "static/js/main.c1429516.js"
