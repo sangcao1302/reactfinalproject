@@ -36,20 +36,15 @@ export default function Home() {
             </div>
         </div>
         <div className='container mt-5'>
-            <div className='row'>
-                <div className='col-12 col-sm-12 col-md-12
-                
-                
-                 w-50 text-white px-4 py-2' style={{background: "linear-gradient(180deg, #F21299 0%, #1B02B5 100%)"}}>
-                    <h1>All Product</h1>
-                </div>
+            <div className='bg-dark text-white p-2 w-50'>
+                <h1>All Product</h1>
             </div>
             <div className='product mb-5'>
-                    <div className='row g-5'>
+                    <div className='row'>
                     {arrProduct?.map((item)=>{
                 return <div className='col-12 col-sm-4 cold-md-4' key={item.id}>
                             <div className='image-product '>
-                                <img src={item.image} alt="" className='w-100'/>
+                                <img src={item.image} alt="" className='w-100' />
                                 <p className='fs-3'>{item.name}</p>
                                 <p>{item.description}</p>
                             </div>

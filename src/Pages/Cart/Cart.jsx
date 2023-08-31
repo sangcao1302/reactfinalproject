@@ -1,98 +1,130 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { delProduct, getQuantity, postOrderProduct } from "../../Redux/reducers/productReducer";
+import { delProduct, getQuantity, postOrderProduct, quantityDown, quantityUp } from "../../Redux/reducers/productReducer";
 
 export default function Cart() {
-  const { arrProductCart, count ,arrLogin,arrProductid,postOrder} = useSelector((state) => state.productReducer);
+  const { arrProductCart ,arrLogin,arrProductid,postOrder,count,totalQuantity} = useSelector((state) => state.productReducer);
   console.log(postOrder)
   console.log(arrLogin)
+ console.log(arrProductCart)
+ 
   const dispatch=useDispatch()
+  
   const [order,setOrder]=useState({
-    orderDetail: [
-    {
-      productId: "",
-      quantity: 0
-    }
-  ],
+    orderDetail: [],
   email: ""})
-  const [quantity,setQuantity]=useState(count===""?1:count)
-  const handleCountUp=()=>{
-    setQuantity(quantity+1)
-    
-   }
-const handleCountDown=()=>{
-    setQuantity(quantity-1)
-    if(quantity<0){
-        quantity=0
-    }
-  }
-  const handleDeleteProduct=()=>{
-    const action=delProduct(arrProductCart)
+  const[quantity,setQuantity]=useState([1])
+  const handleCountUp=(product)=>
+  {
+    const action=quantityUp(product)
     dispatch(action)
+
+   }
+const handleCountDown=(product)=>{
+  const action=quantityDown(product)
+  dispatch(action)
+  
+ 
+  }
+  const handleDeleteProduct=(id)=>{
+    const action=delProduct(id)
+    dispatch(action)
+  
   }
   const handleOrder=()=>{
-    order.orderDetail.map((item)=>{
-      item.productId=arrProductid.id
-      item.quantity=count
+    // order.orderDetail.map.push((item)=>{
+    //   arrProductCart.map((i)=>{
+    //     item.productId=i.id
+    //     item.quantity=i.quantity
+    //   })
+    // })
+    arrProductCart?.map((item)=>{
+      return order.orderDetail.push({
+        productId:`${item.id}`,
+        quantity:item.quantity
+      })
     })
+  
     order.email=arrLogin.email
     const action=postOrderProduct(order)
     dispatch(action)
-    console.log(order)
-    console.log(arrLogin)
+   
   }
-  // const getQuantityProd=()=>{
-  //   const action=getQuantity(order)
-  //   dispatch(action)
-  // }
+  console.log(order)
+
+  let total=0
+  // let final=0
+  // const handleToTal=()=>
+  // {arrProductCart?.forEach((item)=>{
+  //     return async()=>{
+  //       const final=await total+item.price*item.quantity
+  //       return final
+  //     }
+  
+  //   })}
+  
+  
   useEffect(()=>{
     handleOrder()
-    // getQuantityProd()
+    // handleToTal()
   },[])
+  
   return (
     <div>
-      <div className="container">
-        <table className="table">
-          <thead>
-            <tr>
-              <th scope="col">Image</th>
-              <th scope="col">Name</th>
-              <th scope="col">Price</th>
-              <th scope="col">Quantity</th>
-              <th scope="col">Total</th>
-              <th scope="col">Action</th>
-            </tr>
-          </thead>
-          {
-            arrProductCart?.map((item,index)=>{
-              return <tbody key={index}>
-                  <tr>
-                    <td className="w-25"><img src={item.image} className="w-25" alt="" /></td>
-                    <td className="mt-5 fs-5">{item.name}</td>
-                    <td className="mt-5 fs-5">{item.price}$</td>
-                    <td>
-                    <div className='d-flex '>
+      <div className="container mt-5">
+        
+        <div className="row align-items-center">
+          <div className="col-12 col-sm-8 col-md-8">
+              {arrProductCart?.map((item,index)=>{
+                return(
+                  <div className="row align-items-center mt-5" key={index}>
+                    <div className="col-4 col-md-4 col-sm-4">
+                        <img src={item.image} style={{maxWidth:"55%"}} alt="" />
+                    </div>
+                    <div className="col-4 col-md-4 col-sm-4">
+                      <span>{item.name}</span>
+                     
+                      <span className='d-flex mt-3'>
                              <button type="button" className="btn fs-6 text-white p-0" style={{background:" linear-gradient(180deg, #6181F3 0%, #7C97F5 99.48%)",width:"30px",height:"30px",lineHeight:"6px"
-}} onClick={handleCountDown} >-</button>
+}} onClick={()=>handleCountDown(item.id)} >-</button>
+                              <p className="mx-2">{item.quantity}</p>
 
-                            <p className='fs-5 mx-2'>{quantity===""?1:quantity}</p>
                             <button type="button" className="btn fs-6 text-white text-center p-0 " style={{background:" linear-gradient(180deg, #6181F3 0%, #7C97F5 99.48%)",width:"30px",height:"30px",lineHeight:"6px"
-}} onClick={handleCountUp}>+</button>
+}} onClick={()=>handleCountUp(item.id)}>+</button>
+                        </span>
+                        <div className="delProd mt-2 ">
+                            <span className="cursor-pointer text-dark mt-2 fs-4" onClick={()=>handleDeleteProduct(item.id)}><i className="fa fa-trash-alt" />
+</span>
                         </div>
-                    </td>
-                    <td className="fs-5">{quantity*item.price}$</td>
-                    <td>
-                      <button type="button" className="btn btn-dark" onClick={handleDeleteProduct}>Delete</button>
-                    </td>
-                  </tr>
-          </tbody>
-            })
-          }
-         
-        </table>
-          <div className="order d-flex justify-content-end">
-              <button type="button" className="btn btn-danger mx-5" onClick={handleOrder}>Submit Order</button>
+                        
+                    </div>
+                    <div className="col-4 col-md-4 col-sm-4">
+                          <p> {item.price}$</p>                        
+                    </div>
+                  </div>
+                  
+                )
+              })}
+          
           </div>
+          
+          <div className="col-12 col-sm-4 col-md-4">
+              <p className="fw-bold fs-2">Tổng tiền</p>
+              <p className="mx-1 fw-bold fs-3">{arrProductCart.map((item,index)=>
+              {
+                total=total+item.price*item.quantity
+                if (arrProductCart.length - 1 === index)
+                 {
+                     return total
+                  } 
+              })} <span className="">$</span></p>
+            <div className="btn w-100 p-0">
+              <button type="button" class="btn btn-outline-danger w-100">Đặt hàng</button>
+            </div>
+          </div>
+        </div>
+
+          
       </div>
     </div>
   );

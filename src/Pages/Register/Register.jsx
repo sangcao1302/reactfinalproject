@@ -57,7 +57,7 @@ export default function Register() {
         //   handleButton()
   return (
     <div>
-        <div className='container p-0' style={{minHeight:"60.7vh"}}>
+        <div className='container' style={{minHeight:"60.7vh"}}>
                 <form className='row mt-5' onSubmit={(e)=>handleSubmit(e)}>
                     <div className='col-12 col-sm-6 col-md-6'>
                         <div className="mb-3">

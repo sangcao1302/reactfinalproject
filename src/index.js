@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import {
   BrowserRouter,
   unstable_HistoryRouter as HistoryRouter,
+  Navigate,
   Route,
   Routes,
 } from "react-router-dom";
@@ -37,7 +38,8 @@ root.render(
         {/* <Route path="" element={<Login></Login>} >
         </Route> */}
         <Route path="reactfinalproject" element={<HomeTemplate></HomeTemplate>}>
-          <Route index element={<Login></Login>}></Route>
+        <Route index element={<Navigate to="/reactfinalproject/home"></Navigate>}></Route>
+
           <Route path="/reactfinalproject/home" element={<Home></Home>}></Route>
           <Route path="/reactfinalproject/detail">
               <Route path=":id" element={<Detail></Detail>}></Route>

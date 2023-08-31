@@ -3,8 +3,8 @@ import React from 'react'
 export default function Footer() {
   return (
     <div>
-      <div className='container-fluid bg-dark p-0'>
-        <div className='container bg-dark p-0'>
+      <div className='container-fluid bg-dark '>
+        <div className='container bg-dark '>
           <div className='row'>
             <div className='col-12 col-sm-4 col-md-4 text-white mt-4'>
               <h3>GET HELP</h3>

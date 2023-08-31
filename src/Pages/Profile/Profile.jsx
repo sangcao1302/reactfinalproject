@@ -6,11 +6,11 @@ export default function Profile() {
     const{token,arrLogin,quantity,count,arrProductCart}=useSelector(state=>state.productReducer)
     console.log(count)
     console.log(token)
-    console.log(arrLogin.accessToken)
+   
     console.log(quantity)
     const dispatch=useDispatch()
     const getToken=()=>{
-        const action=postProfile(arrLogin.accessToken)
+        const action=postProfile()
         dispatch(action)
       }
       useEffect(()=>{

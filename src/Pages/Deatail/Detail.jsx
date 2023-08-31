@@ -2,11 +2,12 @@ import React, { useEffect, useMemo, useState,memo } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getDataProductApiId, getProductCart, getProductQuantity } from '../../Redux/reducers/productReducer'
 import { NavLink, useParams } from 'react-router-dom'
+import {history} from '../../index';
 
 export default function Detail() {
     const  [count,setCount]=useState(1)
     const quantity=count
-    const{arrProductid}=useSelector(state=>state.productReducer)
+    const{arrProductid ,arrLogin}=useSelector(state=>state.productReducer)
     console.log(arrProductid)
     const params=useParams()
     const dispatch=useDispatch()
@@ -31,9 +32,16 @@ export default function Detail() {
         getProductById()
         setCount(1)
     },[params.id])
-    const handleAddToCart=()=>{
-        const action=getProductCart(arrProductid)      
-        dispatch(action)       
+    const handleAddToCart=()=>{ 
+        if(arrLogin){
+            const action=getProductCart(arrProductid)      
+        dispatch(action)
+        }
+        else{
+            alert("Dang nhap truoc khi them san pham")
+            history.push("/reactfinalproject/login")
+        }
+               
     }
 
   return (
@@ -59,14 +67,14 @@ export default function Detail() {
                        
                         
                         <p className='fs-3 text-danger fw-semibold'> {arrProductid.price}$</p>
-                        <div className='d-flex'>
+                        {/* <div className='d-flex'>
                              <button type="button" className="btn fs-4 text-white" style={{background:" linear-gradient(180deg, #6181F3 0%, #7C97F5 99.48%)",width:"50px",height:"50px",padding:"0"
 }} onClick={handleCountDown} >-</button>
 
                             <p className='mt-1 fs-3 mx-2'>{count}</p>
                             <button type="button" className="btn fs-4 text-white" style={{background:" linear-gradient(180deg, #6181F3 0%, #7C97F5 99.48%)",width:"50px",height:"50px",padding:"0"
 }} onClick={handleCountUp}>+</button>
-                        </div>
+                        </div> */}
                         <button className='text-white fs-5' style={{background: "linear-gradient(270deg, rgba(62, 32, 248, 0.9) 5.14%, #D017EE 89.71%)",border:"none",width:"175px",height:"64px"
 }} onClick={handleAddToCart}>Add to cart</button>
                     </div>

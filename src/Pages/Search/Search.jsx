@@ -14,7 +14,7 @@ export default function Search() {
     }
     useEffect(()=>{
       getApiSearch()
-    })
+    },[params.product])
   return (
     <div>
              <div className='container mt-5'>
@@ -27,7 +27,7 @@ export default function Search() {
                 </div>
             </div>
             <div className='product mb-5'>
-                    <div className='row g-5'>
+                    <div className='row'>
                     {prodSearch?.map((item)=>{
                 return <div className='col-12 col-sm-4 cold-md-4' key={item.id}>
                             <div className='image-product '>

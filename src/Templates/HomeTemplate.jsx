@@ -7,12 +7,13 @@ export default function HomeTemplate() {
   return (
     <>
       <Header></Header>
-      <div className="content-layout" >
-
-      </div>
-      <Outlet>
+      <div className="content-layout" style={{ minHeight: "80vh" }}>
+      
+        <Outlet>
         
-      </Outlet>
+        </Outlet>
+      </div>
+      
       <Footer></Footer>
     </>
   );
