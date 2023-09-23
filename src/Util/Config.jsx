@@ -55,7 +55,7 @@ http.interceptors.response.use((res)=>{
     console.log(err);
     if(err.response?.status === 401) {
         alert('Đăng nhập để vào trang này !');
-        history.push('/reactfinalproject/login');
+        history.push('/login');
     }
     return Promise.reject(err);
 });

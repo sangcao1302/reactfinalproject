@@ -16,7 +16,7 @@ export default function Header() {
       <div className="container-fluid bg-dark">
         <div className="container">
           <nav className="navbar navbar-expand-sm navbar-dark bg-dark d-flex">
-            <NavLink className="navbar-brand w-50" to="/reactfinalproject/home">
+            <NavLink className="navbar-brand w-50" to="/home">
               <img src="./assets/image/logo.png" alt="" />
             </NavLink>
             <button
@@ -44,7 +44,7 @@ export default function Header() {
                 <NavLink
                   className="text-decoration-none text-white"
                   type="submit"
-                  to={`/reactfinalproject/search/${search}`}
+                  to={`/search/${search}`}
                 >
                   Search
                 </NavLink>
@@ -55,7 +55,7 @@ export default function Header() {
                 <li className="nav-item">
                   <NavLink
                     className="nav-link active"
-                    to={`/reactfinalproject/cart`}
+                    to={`/cart`}
                     aria-current="page"
                     style={{display:`${arrLogin ? " ":"none"}`}}
                   >
@@ -65,7 +65,7 @@ export default function Header() {
                 <li className="nav-item">
                   <NavLink
                     className="nav-link active"
-                    to={`/reactfinalproject/login`}
+                    to={`/login`}
                     aria-current="page"
                     style={{display:`${arrLogin ? "none":" "}`}}
                   >
@@ -73,17 +73,17 @@ export default function Header() {
                   </NavLink>
                 </li>
                 <li className="nav-item">
-                <NavLink className="nav-link" to={`/reactfinalproject/register`} style={{display:`${arrLogin?"none":" "}`}}>
+                <NavLink className="nav-link" to={`/register`} style={{display:`${arrLogin?"none":" "}`}}>
                     Register
                   </NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink className="nav-link" to={`/reactfinalproject/profile`} style={{display:`${arrLogin ? " ":"none"}`}}>
+                  <NavLink className="nav-link" to={`/profile`} style={{display:`${arrLogin ? " ":"none"}`}}>
                     Profile
                   </NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink className="nav-link" to={`/reactfinalproject/login`} style={{display:`${arrLogin ? " ":"none"}`}} onClick={() => {
+                  <NavLink className="nav-link" to={`/login`} style={{display:`${arrLogin ? " ":"none"}`}} onClick={() => {
                 clearStorage(USER_LOGIN);
                 window.location.reload()
               }}>
@@ -98,7 +98,7 @@ export default function Header() {
       <div className="container mt-2">
         <ul className="nav-link d-flex" style={{listStyleType:"none"}}>
           <li className="nav-item">
-            <NavLink className="nav-link active" to="/reactfinalproject/home" aria-current="page">
+            <NavLink className="nav-link active" to="home" aria-current="page">
              Home
             </NavLink>
           </li>

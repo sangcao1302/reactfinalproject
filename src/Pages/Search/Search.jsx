@@ -38,7 +38,7 @@ export default function Search() {
                             <div className='foot-prodcut'>
                                 <div className='row g-0'>
                                     <div className='col-12 col-sm-6 col-md-6 text-center'>
-                                         <NavLink className="nav-link active" to={`/reactfinalproject/detail/${item.id}`} aria-current="page" style={{background: "rgba(157, 225, 103, 1)",lineHeight:"50px"}}  >Buy now</NavLink>
+                                         <NavLink className="nav-link active" to={`/detail/${item.id}`} aria-current="page" style={{background: "rgba(157, 225, 103, 1)",lineHeight:"50px"}}  >Buy now</NavLink>
                                     </div>
                                     <div className='col-12 col-sm-6 col-md-6 text-center'>
                                         <div className='price' style={{background: "rgba(222, 221, 220, 1)",lineHeight:"50px"}}>{item.price}$</div>

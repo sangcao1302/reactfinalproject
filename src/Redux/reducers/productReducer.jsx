@@ -67,21 +67,6 @@ const productReducer = createSlice({
     state.prodSearch=action.payload
   },
   getProductCart:(state,action)=>{
-    // let clickIdProduct=action.payload
-    // let proDuctCartId=state.arrProductCart.find(item=>item.id===clickIdProduct.id)
-    // if(proDuctCartId){
-    //   state.count+=1
-    // }
-    // else{
-    //   state.arrProductCart.push({
-    //     id: clickIdProduct.id,
-    //     name: clickIdProduct.name,
-    //     image: clickIdProduct.image,
-    //     price: clickIdProduct.price,
-    //     quantity: 1,
-    //     totalPrice: clickIdProduct.price,
-    //   })
-    // }
     const newItem = action.payload;
     // Check if product already exists or not
     const existingItem = state.arrProductCart?.find(
@@ -209,15 +194,7 @@ const productReducer = createSlice({
       var checkPass=value
       console.log(value)
      }
-    //  if(id==="passwordConfirm"){
-    //   var checkPassCon=value
-    //   console.log(value)
-    //  }
-    //  if(id==="passwordConfirm" ){
-    //   if(value!==checkPass){
-    //     state.validRegister[id]="khong khop"
-    //   }
-    //  }
+ 
     if (id==="name" && !regexName.test(value)){
       state.validRegister[id]="Vui lòng nhập tên bằng chữ" 
     }
@@ -236,10 +213,6 @@ const productReducer = createSlice({
     getProfileData:(state,actions)=>{
       state.token=actions.payload
     },
-    // getQuantity:(state,action)=>{
-    //   state.quantity=action.payload
-    // }
-
   }
  
 });
@@ -278,7 +251,7 @@ export const getLogin=(userLogin)=>{
       dispatch(action)
       saveStorageJSON(USER_LOGIN,res.data.content);
    
-      history.push('/reactfinalproject/home');
+      history.push('/home');
     }catch(err){
     
       const action=loginValid(err.response?.data.message)
@@ -295,10 +268,10 @@ export const postRegister=(registerData)=>{
       dispatch(action)   
      
       if(res.data.message==="Dữ liệu nhập vào không đúng!") {
-        history.push('/reactfinalproject/register');
+        history.push('/register');
       }else{
 
-        history.push('/reactfinalproject/profile');
+        history.push('/profile');
       }
     }catch(err){
     

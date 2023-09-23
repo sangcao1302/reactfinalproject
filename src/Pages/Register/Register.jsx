@@ -46,15 +46,7 @@ export default function Register() {
         dispatch(action)    
        
       }
-        //  const handleButton=()=>{
-        //    if(validRegister["emai"]!=="" && validRegister["password"]!=="" && validRegister["passwordConfirm"]!=="" && validRegister["phone"]!=="" && validRegister["name"]!=="" ){
-        //         history.push("/register")
-        //    }
-        //    else if(validRegister["emai"]==="" && validRegister["password"]==="" && validRegister["passwordConfirm"]==="" && validRegister["phone"]==="" && validRegister["name"]===""){
-        //     history.push("/home")
-        //    }
-        //  }
-        //   handleButton()
+     
   return (
     <div>
         <div className='container' style={{minHeight:"60.7vh"}}>

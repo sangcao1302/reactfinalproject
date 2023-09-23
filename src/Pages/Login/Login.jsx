@@ -61,7 +61,7 @@ export default function Login() {
                 <span className="text-danger mx-1 fs-6 mt-5">{validLogin||validDetail.password}</span>
               </div>
               <div className="col-auto mt-4 d-flex justify-content-end">
-                <NavLink className="mx-4 mt-3" style={{textDecoration:"none" , color:"#152AEBCC"}} to={`/reactfinalproject/register`}>Register now</NavLink>
+                <NavLink className="mx-4 mt-3" style={{textDecoration:"none" , color:"#152AEBCC"}} to={`/register`}>Register now</NavLink>
                 <button type="submit" className="btn rounded-pill text-white text-center" style={{width:"121px",height:"48px",background:"#6200EE",lineHeight:"30px",textDecoration:"none"}}>
                   Login
                 </button>

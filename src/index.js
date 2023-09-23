@@ -37,20 +37,20 @@ root.render(
       <Routes>
         {/* <Route path="" element={<Login></Login>} >
         </Route> */}
-        <Route path="reactfinalproject" element={<HomeTemplate></HomeTemplate>}>
-        <Route index element={<Navigate to="/reactfinalproject/home"></Navigate>}></Route>
+        <Route path="" element={<HomeTemplate></HomeTemplate>}>
+        <Route index element={<Navigate to="/home"></Navigate>}></Route>
 
-          <Route path="/reactfinalproject/home" element={<Home></Home>}></Route>
-          <Route path="/reactfinalproject/detail">
+          <Route path="/home" element={<Home></Home>}></Route>
+          <Route path="/detail">
               <Route path=":id" element={<Detail></Detail>}></Route>
           </Route>
-          <Route path="/reactfinalproject/cart" element={<Cart></Cart>} ></Route>
-          <Route path="/reactfinalproject/register" element={<Register></Register>} ></Route>
-          <Route path="/reactfinalproject/search">
+          <Route path="/cart" element={<Cart></Cart>} ></Route>
+          <Route path="/register" element={<Register></Register>} ></Route>
+          <Route path="/search">
               <Route path=":product" element={<Search></Search>}></Route>
           </Route>
-          <Route path="/reactfinalproject/profile" element={<Profile></Profile>} ></Route>
-          <Route path="/reactfinalproject/login" element={<Login></Login>} ></Route>
+          <Route path="/profile" element={<Profile></Profile>} ></Route>
+          <Route path="/login" element={<Login></Login>} ></Route>
           
         </Route>
       </Routes>
