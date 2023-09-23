@@ -85,6 +85,7 @@ export default function Header() {
                 <li className="nav-item">
                   <NavLink className="nav-link" to={`/reactfinalproject/login`} style={{display:`${arrLogin ? " ":"none"}`}} onClick={() => {
                 clearStorage(USER_LOGIN);
+                window.location.reload()
               }}>
                     Logout
                   </NavLink>
