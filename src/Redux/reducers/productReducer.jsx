@@ -152,13 +152,14 @@ const productReducer = createSlice({
       state.arrProductCart[itemIndex].quantity -= 1;
 
       
-    } else if (state.arrProductCart[itemIndex].quantity === 1) {
+    } 
+    else if (state.arrProductCart[itemIndex].quantity <= 1) {
       const nextCartItems = state.arrProductCart.filter(
         (item) => item.id !== action.payload.id
       );
 
       state.arrProductCart = nextCartItems;
-
+   
       
     }
 
