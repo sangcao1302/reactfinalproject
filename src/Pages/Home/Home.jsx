@@ -36,9 +36,12 @@ export default function Home() {
             </div>
         </div>
         <div className='container mt-5'>
-            <div className='bg-dark text-white p-2 w-50'>
-                <h1>All Product</h1>
-            </div>
+                <div className='row'>
+                    <div className='col-12 col-sm-12 col-md-12 text-nowrap'>
+                        <p className='bg-black text-white fs-3 fw-bold p-3' style={{maxWidth:"400px"}}>All Product</p>
+                    </div>
+                </div>
+            
             <div className='product mb-5'>
                     <div className='row'>
                     {arrProduct?.map((item)=>{

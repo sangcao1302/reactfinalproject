@@ -14,6 +14,7 @@ export default function Cart() {
     orderDetail: [],
   email: ""})
   const[quantity,setQuantity]=useState([1])
+  const[display,setDisplay]=useState("none")
   const handleCountUp=(product)=>
   {
     const action=quantityUp(product)
@@ -32,12 +33,7 @@ const handleCountDown=(product)=>{
   
   }
   const handleOrder=()=>{
-    // order.orderDetail.map.push((item)=>{
-    //   arrProductCart.map((i)=>{
-    //     item.productId=i.id
-    //     item.quantity=i.quantity
-    //   })
-    // })
+ 
     arrProductCart?.map((item)=>{
       return order.orderDetail.push({
         productId:`${item.id}`,
@@ -53,21 +49,17 @@ const handleCountDown=(product)=>{
   console.log(order)
 
   let total=0
-  // let final=0
-  // const handleToTal=()=>
-  // {arrProductCart?.forEach((item)=>{
-  //     return async()=>{
-  //       const final=await total+item.price*item.quantity
-  //       return final
-  //     }
-  
-  //   })}
-  
-  
-  useEffect(()=>{
+  const handleClick=()=>{
     handleOrder()
-    // handleToTal()
-  },[])
+    setDisplay("")
+  
+    setTimeout(()=>{
+      setDisplay("none")
+    },2000)
+  }
+  
+  
+
   
   return (
     <div>
@@ -109,6 +101,10 @@ const handleCountDown=(product)=>{
           </div>
           
           <div className="col-12 col-sm-4 col-md-4">
+            <div className="text-end" style={{display:`${display}`}}>
+               <p className="text-end bg-success d-inline p-3 text-white rounded-3"><i className="fa fa-check text-success rounded-5 bg-white fs-6 px-2 py-2 mx-2" style={{fontSize:"10px"}}></i>Thành công</p>
+            </div>
+  
               <p className="fw-bold fs-2">Tổng tiền</p>
               <p className="mx-1 fw-bold fs-3">{arrProductCart.map((item,index)=>
               {
@@ -119,7 +115,7 @@ const handleCountDown=(product)=>{
                   } 
               })} <span className="">$</span></p>
             <div className="btn w-100 p-0">
-              <button type="button" class="btn btn-outline-danger w-100">Đặt hàng</button>
+              <button type="button" className="btn btn-outline-danger w-100" onClick={handleClick}>Đặt hàng</button>
             </div>
           </div>
         </div>

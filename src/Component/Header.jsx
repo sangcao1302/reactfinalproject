@@ -54,7 +54,7 @@ export default function Header() {
               <ul className="navbar-nav  mt-2 mt-lg-0">
                 <li className="nav-item">
                   <NavLink
-                    className="nav-link active"
+                    className="nav-link active text-nowrap"
                     to={`/cart`}
                     aria-current="page"
                     style={{display:`${arrLogin ? " ":"none"}`}}
@@ -96,23 +96,23 @@ export default function Header() {
         </div>
       </div>
       <div className="container mt-2">
-        <ul className="nav-link d-flex" style={{listStyleType:"none"}}>
-          <li className="nav-item">
-            <NavLink className="nav-link active" to="home" aria-current="page">
+        <ul className="nav-link d-flex text-wrap" style={{listStyleType:"none"}}>
+          <li className="nav-item mx-2">
+            <NavLink className="nav-link active" to="/  home" aria-current="page">
              Home
             </NavLink>
           </li>
-          <li className="nav-item mx-4">
+          <li className="nav-item mx-2">
             <NavLink className="nav-link active" href="#" aria-current="page">
               Men
             </NavLink>
           </li>
-          <li className="nav-item mx-4">
+          <li className="nav-item mx-2">
             <NavLink className="nav-link" href="#">
               Women
             </NavLink>
           </li>
-          <li className="nav-item mx-4">
+          <li className="nav-item mx-2">
             <NavLink className="nav-link" href="#">
               Kid
             </NavLink>
